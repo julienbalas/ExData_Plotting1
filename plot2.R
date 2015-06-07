@@ -8,4 +8,3 @@ two<-data.frame(two,dateTime)
 png(file ="plot2.png")
 with(two, plot(dateTime,Global_active_power,type="l",ylab="Global Active Power (kilowatts)",xlab=NA))
 dev.off()
-#TODO xlab : days in french because my local is french
