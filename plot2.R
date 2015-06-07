@@ -1,6 +1,8 @@
 data <- read.csv("household_power_consumption.txt", header=TRUE, sep=";", dec=".")
+two <- subset(data, data$Date == "1/2/2007" |  data$Date == "2/2/2007")
+two$Date2 <- as.Date(two$Date,format="%d/%m/%Y")
+dateTime<-as.POSIXct(paste(two$Date2,as.character(two$Time)))
+two<-data.frame(two,dateTime)
+with(deux, plot(dateTime,Global_active_power,type="l",ylab="Global Active Power (kilowatts)",xlab=NA))
 
-deux <- subset(data, data$Date == "1/2/2007" |  data$Date == "2/2/2007")
-#data$DateTime <- strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%s")
-
-with(deux, plot(Global_active_power ~ Time, main="sl"))
+#TODO xlab : days in french because my local is french
