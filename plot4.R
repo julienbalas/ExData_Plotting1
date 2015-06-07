@@ -10,6 +10,8 @@ two$Sub_metering_1<-as.numeric(as.character(two$Sub_metering_1))
 two$Sub_metering_2<-as.numeric(as.character(two$Sub_metering_2)) 
 two$Sub_metering_3<-as.numeric(as.character(two$Sub_metering_3)) 
 
+
+png(file ="plot4.png")
 # graphical part
 par(mfrow = c(2,2))
 #top left
@@ -25,9 +27,11 @@ with(two, lines(dateTime, Sub_metering_1, col="black"))
 with(two, lines(dateTime, Sub_metering_2, col="red"))
 with(two, lines(dateTime, Sub_metering_3, col="blue"))
 
-legend("topright", 
+legend("topright", bty="n",
        lwd = 1,  lty = c(1, 1, 1), col = c( "black", "blue", "red" ), 
        legend = c("Sub_metering_1" ,"Sub_metering_2" ,"Sub_metering_3" ))
 
 #bottom right
 with(two, plot(dateTime, Global_reactive_power, type="l",xlab="datetime"))
+
+dev.off()
