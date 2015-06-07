@@ -3,6 +3,6 @@ two <- subset(data, data$Date == "1/2/2007" |  data$Date == "2/2/2007")
 two$Date2 <- as.Date(two$Date,format="%d/%m/%Y")
 dateTime<-as.POSIXct(paste(two$Date2,as.character(two$Time)))
 two<-data.frame(two,dateTime)
-with(deux, plot(dateTime,Global_active_power,type="l",ylab="Global Active Power (kilowatts)",xlab=NA))
+with(two, plot(dateTime,Global_active_power,type="l",ylab="Global Active Power (kilowatts)",xlab=NA))
 
 #TODO xlab : days in french because my local is french
